@@ -1,0 +1,499 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Anish Jaiswal | Futuristic Tech Portfolio</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    
+    <style>
+        /* Define Futuristic Colors and Style */
+        :root {
+            --primary-dark: #121212; /* Deep background */
+            --secondary-bg: #1f1f1f; /* Card background */
+            --accent-neon: #00FFFF; /* Electric Cyan */
+            --link-hover: #00BFFF; /* Bright blue for hover */
+            --shadow-color: rgba(23, 61, 61, 0.674); /* Neon shadow */
+        }
+
+        body {    
+            background-color: var(--primary-dark);
+            color: #f3f3f3;
+            scroll-behavior: smooth;
+        }
+
+        .navbar {
+            background-color: var(--secondary-bg) !important;
+            border-bottom: 2px solid var(--accent-neon);
+        }
+
+        /* Hero Text Effect */
+        .neon-text {
+            color: var(--accent-neon);
+            text-shadow: 0 0 5px var(--accent-neon), 0 0 10px var(--accent-neon);
+        }
+
+        /* Section Headings */
+        .section-heading-futuristic {
+            border-bottom: 3px solid var(--accent-neon);
+            padding-bottom: 5px;
+            display: inline-block;
+            color: white;
+            text-shadow: 0 0 3px var(--accent-neon);
+        }
+
+        /* Card Style for Futuristic Look */
+        .futuristic-card {
+            background-color: var(--secondary-bg);
+            border: 1px solid var(--accent-neon);
+            box-shadow: 0 0 10px var(--shadow-color);
+            transition: box-shadow 0.3s ease, transform 0.3s ease;
+        }
+        .futuristic-card:hover {
+            box-shadow: 0 0 15px var(--accent-neon), 0 0 25px var(--shadow-color);
+            transform: translateY(-3px);
+        }
+
+        /* Education Timeline Specific CSS */
+        .edu-timeline {
+            border-left: 2px solid var(--accent-neon);
+            margin-left: 20px;
+            padding-left: 30px;
+            position: relative;
+        }
+
+        .edu-item {
+            position: relative;
+            margin-bottom: 40px;
+        }
+
+        .edu-item::before {
+            content: '';
+            position: absolute;
+            left: -41px;
+            top: 10px;
+            width: 20px;
+            height: 20px;
+            background: var(--primary-dark);
+            border: 2px solid var(--accent-neon);
+            border-radius: 50%;
+            box-shadow: 0 0 10px var(--accent-neon);
+        }
+
+        .grade-highlight {
+            color: var(--accent-neon);
+            font-weight: bold;
+            border: 1px solid var(--accent-neon);
+            padding: 2px 12px;
+            border-radius: 15px;
+            font-size: 0.9rem;
+            display: inline-block;
+            margin-top: 10px;
+            background: rgba(0, 255, 255, 0.05);
+        }
+
+        /* --- PROJECT CARD SPECIFIC CSS --- */
+        .project-card-img-wrapper {
+            height: 200px;
+            overflow: hidden;
+            border-bottom: 1px solid var(--accent-neon);
+        }
+
+        .project-card-img-wrapper img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s ease;
+            filter: brightness(0.8);
+        }
+
+        .futuristic-card:hover .project-card-img-wrapper img {
+            transform: scale(1.1);
+            filter: brightness(1);
+        }
+
+        .tech-tag {
+            font-size: 0.7rem;
+            font-weight: bold;
+            color: var(--primary-dark);
+            background-color: var(--accent-neon);
+            padding: 3px 10px;
+            border-radius: 12px;
+            margin-right: 5px;
+            margin-bottom: 5px;
+            display: inline-block;
+            text-transform: uppercase;
+        }
+      /* Minimalist Micro-Button */
+.btn-view-micro {
+    padding: 3px 12px;
+    font-size: 0.7rem;
+    font-weight: 700;
+    color: var(--accent-neon);
+    text-decoration: none;
+    border: 1px solid var(--accent-neon);
+    border-radius: 3px;
+    text-transform: uppercase;
+    letter-spacing: 1.5px;
+    transition: all 0.3s ease;
+    display: inline-block;
+    background: transparent;
+    text-align: center;
+}
+
+.btn-view-micro:hover {
+    background-color: var(--accent-neon);
+    color: var(--primary-dark);
+    box-shadow: 0 0 12px var(--accent-neon);
+    transform: translateY(-1px);
+}
+
+        /* Styling for the Freelance Badge */
+.status-badge {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    background-color: #FFD700; /* Gold color */
+    color: #121212;
+    font-size: 0.65rem;
+    font-weight: 800;
+    padding: 3px 10px;
+    border-radius: 4px;
+    text-transform: uppercase;
+    z-index: 5;
+    box-shadow: 0 0 10px rgba(255, 215, 0, 0.6);
+    letter-spacing: 1px;
+}
+
+        /* Accent Button Style */
+        .btn-neon-accent {
+            background-color: var(--accent-neon);
+            color: var(--primary-dark);
+            font-weight: bold;
+            border: none;
+            transition: background-color 0.3s, box-shadow 0.3s;
+        }
+        .btn-neon-accent:hover {
+            background-color: var(--link-hover);
+            box-shadow: 0 0 8px var(--accent-neon);
+            color: var(--primary-dark);
+        }
+        
+        .research-portal-link {
+            background-color: #FF7F50; 
+            color: white;
+            border: 2px solid #FF7F50;
+        }
+        .research-portal-link:hover {
+            background-color: #FF6347;
+            border-color: #FF6347;
+            color: white;
+        }
+    </style>
+</head>
+<body>
+
+    <nav class="navbar navbar-expand-lg navbar-dark sticky-top shadow-lg">
+        <div class="container">
+            <a href="#home" class="navbar-brand fs-2 fw-bold text-white">
+                Anish <span class="neon-text">Jaiswal</span>
+            </a>
+
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+
+            <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
+                <ul class="navbar-nav gap-3">
+                    <li class="nav-item"><a href="#about" class="nav-link text-white">About</a></li>
+                    <li class="nav-item"><a href="#education" class="nav-link text-white">Education</a></li>
+                    <li class="nav-item"><a href="#skills" class="nav-link text-white">Skills</a></li>
+                    <li class="nav-item"><a href="#projects" class="nav-link text-white">Projects</a></li>
+                    <li class="nav-item"><a href="#certificates" class="nav-link text-white">Certificates</a></li>
+                    <li class="nav-item">
+                        <a href="research.html" class="btn btn-sm research-portal-link">
+                            Research Portal
+                        </a>
+                    </li>
+                    <li class="nav-item"><a href="#contact" class="nav-link text-white">Contact</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <main>
+        <section id="home" class="py-5 text-center border-bottom border-secondary">
+            <div class="container my-5">
+                <h1 class="display-3 fw-bolder mb-3 text-white">
+                    Aspiring Engineer & <span class="neon-text">Research Enthusiast</span>
+                </h1>
+                <p class="fs-4 mb-4 text-secondary">
+                    B.Tech-CSE 2nd year Student  | Babu Banarasi Das University
+                </p>
+                <a href="#projects" class="btn btn-lg btn-neon-accent shadow-lg">
+                    View Key Projects
+                </a>
+            </div>
+        </section>
+
+        <section id="about" class="py-5">
+            <div class="container px-4 col-lg-8 mx-auto">
+                <div class="text-center mb-5">
+                    <h2 class="fs-1 fw-bold section-heading-futuristic">ABOUT ME</h2>
+                </div>
+                <p class="fs-5 mb-4 text-center">
+                    I am Anish Jaiswal, a 2nd year B.Tech student with a deep commitment to both academic excellence and practical problem-solving. My coursework has provided a strong foundation in algorithms and data structures, which I actively apply in real-world projects.
+                </p>
+            </div>
+        </section>
+
+        <section id="education" class="py-5" style="background-color: var(--secondary-bg);">
+            <div class="container px-4 col-lg-8 mx-auto">
+                <div class="text-center mb-5">
+                    <h2 class="fs-1 fw-bold section-heading-futuristic">EDUCATION</h2>
+                </div>
+
+                <div class="edu-timeline">
+                    <div class="edu-item">
+                        <div class="futuristic-card p-4 rounded-3">
+                            <span class="text-info fw-bold small">SEPT 2024 - PRESENT</span>
+                            <h3 class="h4 mt-1 text-white">Babu Banarasi Das University</h3>
+                            <p class="mb-1 text-secondary">Bachelor of Technology - Computer Science</p>
+                            <div class="grade-highlight">Grade: A++</div>
+                        </div>
+                    </div>
+
+                    <div class="edu-item">
+                        <div class="futuristic-card p-4 rounded-3">
+                            <span class="text-info fw-bold small">OCT 2022 - JULY 2024</span>
+                            <h3 class="h4 mt-1 text-white">Oxford Public School</h3>
+                            <p class="mb-1 text-secondary">Intermediate (Class XII)</p>
+                            <div class="grade-highlight">Grade: 82%</div>
+                        </div>
+                    </div>
+
+                    <div class="edu-item">
+                        <div class="futuristic-card p-4 rounded-3">
+                            <span class="text-info fw-bold small">OCT 2019 - JULY 2022</span>
+                            <h3 class="h4 mt-1 text-white">St. Joseph’s School</h3>
+                            <p class="mb-1 text-secondary">High School (Class X)</p>
+                            <div class="grade-highlight">Grade: 95.8%</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="skills" class="py-5 py-md-6">
+            <div class="container px-4 px-lg-5">
+                <div class="text-center mb-5">
+                    <h2 class="fs-1 fw-bold section-heading-futuristic">TECHNICAL SKILLS</h2>
+                </div>
+                <div class="row row-cols-2 row-cols-sm-3 row-cols-lg-5 g-4 mx-auto" style="max-width: 900px;">
+                    <div class="col"><div class="p-3 rounded-3 text-center futuristic-card"><span class="fw-bold">Python</span></div></div>
+                    <div class="col"><div class="p-3 rounded-3 text-center futuristic-card"><span class="fw-bold">C++</span></div></div>
+                    <div class="col"><div class="p-3 rounded-3 text-center futuristic-card"><span class="fw-bold">TensorFlow</span></div></div>
+                    <div class="col"><div class="p-3 rounded-3 text-center futuristic-card"><span class="fw-bold">JavaScript</span></div></div>
+                    <div class="col"><div class="p-3 rounded-3 text-center futuristic-card"><span class="fw-bold">SQL</span></div></div>
+                    <div class="col"><div class="p-3 rounded-3 text-center futuristic-card"><span class="fw-bold">Git/GitHub</span></div></div>
+                    <div class="col"><div class="p-3 rounded-3 text-center futuristic-card"><span class="fw-bold">HTML/CSS</span></div></div>
+                    <div class="col"><div class="p-3 rounded-3 text-center futuristic-card"><span class="fw-bold">Research</span></div></div>
+                    <div class="col"><div class="p-3 rounded-3 text-center futuristic-card"><span class="fw-bold">Flask</span></div></div>
+                    <div class="col"><div class="p-3 rounded-3 text-center futuristic-card"><span class="fw-bold">PHP</span></div></div>
+                </div>
+            </div>
+        </section>
+
+        
+
+       <section id="projects" class="py-5" style="background-color: var(--secondary-bg);">
+            <div class="container">
+                <div class="text-center mb-5">
+                    <h2 class="fs-1 fw-bold section-heading-futuristic">KEY PROJECTS</h2>
+                </div>
+                
+                <div class="row row-cols-1 row-cols-md-2 row-cols-lg-3 g-4">
+                    
+                    <div class="col">
+                        <div class="card h-100 futuristic-card border-0 overflow-hidden">
+                            <div class="project-card-img-wrapper">
+                                <img src="portfolio.png" alt="Portfolio">
+                            </div>
+                            <div class="card-body d-flex flex-column">
+                                <h3 class="h5 fw-bold neon-text">My Portfoli website</h3>
+                                <p class="text-secondary small flex-grow-1">This is my personal portfolio website designed and developed to showcase my academic background, technical skills, projects, and research interests. The website features a clean dark-themed UI, responsive design, and well-structured sections including education, skills, projects, certifications, 
+                                    and contact information. It serves as a central hub to present my work and professional profile.</p>
+                                <div class="mt-3">
+                                    <span class="tech-tag">HTML</span>
+                                    <span class="tech-tag">CSS</span>
+                                    <span class="tech-tag">Tailwind CSS</span>
+                                    <span class="tech-tag">JavaScript</span>
+                                     <span class="tech-tag">API Integration</span>
+                                    
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col">
+                        <div class="card h-100 futuristic-card border-0 overflow-hidden">
+                            <div class="project-card-img-wrapper">
+                                <span class="status-badge">Freelance</span>
+                                <img src="impactinsight.png" alt="ImpactInsight freelance">
+                            </div>
+                            <div class="card-body d-flex flex-column">
+                                <h3 class="h5 fw-bold neon-text">ImpactInsight website</h3>
+                                <p class="text-secondary small flex-grow-1">ImpactInsight is a content-driven web platform focused on social issues, sustainability, and public awareness. I worked on the frontend development, creating responsive layouts and structured UI components to present articles and insights clearly.
+                                     The website emphasizes readability, accessibility, and smooth user experience across devices.</p>
+                                <div class="mt-3">
+                                    <span class="tech-tag">HTML</span>
+                                    <span class="tech-tag">CSS</span>
+                                    <span class="tech-tag">Bootstrap</span>
+                                    <span class="tech-tag">JavaScript</span>
+                                    <span class="tech-tag">PHP</span>
+                                    <span class="tech-tag">MySQL</span>
+                                </div>
+                                <a href="https://www.impactinsights.co.in/" target="_blank" class="btn-view-micro">View</a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col">
+                        <div class="card h-100 futuristic-card border-0 overflow-hidden">
+                            <div class="project-card-img-wrapper">
+                                 <span class="status-badge">Freelance</span>
+                                <img src="sanyod.png" alt="Project 3">
+                            </div>
+                            <div class="card-body d-flex flex-column">
+                                <h3 class="h5 fw-bold neon-text">Sanyod</h3>
+                                <p class="text-secondary small flex-grow-1">Sanyod is an educational platform aimed at preserving and promoting Indian knowledge systems through online content. I contributed as a frontend developer, implementing responsive page
+                                     designs and interactive elements to ensure a clean and engaging learning interface.</p>
+                                <div class="mt-3">
+                                
+                                    <span class="tech-tag">HTML</span>
+                                    <span class="tech-tag">Bootstrap</span>
+                                    <span class="tech-tag">JavaScript</span>
+                                     <span class="tech-tag">Frontend role</span>
+                                </div>
+                                <a href="https://sanyod.in/" target="_blank" class="btn-view-micro">View</a>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </section>
+
+
+
+
+
+
+
+
+
+
+        <section id="certificates" class="py-5">
+            <div class="container px-4">
+                <div class="text-center mb-5">
+                    <h2 class="fs-1 fw-bold section-heading-futuristic">CERTIFICATES</h2>
+                </div>
+                <div class="row g-4 justify-content-center">
+                    <div class="col-lg-4 col-md-6">
+                        <div class="p-4 rounded-3 futuristic-card text-center">
+                            <p class="fw-semibold mb-0 text-white">1st runner-up</p>
+                            <span class="small text-secondary">Cine-AI EDGE 2025</span>
+                        </div>
+                    </div>
+                    <div class="col-lg-4 col-md-6">
+                        <div class="p-4 rounded-3 futuristic-card text-center">
+                            <p class="fw-semibold mb-0 text-white">Web Dev Bootcamp</p>
+                            <span class="small text-secondary">Udemy</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="contact" class="py-5">
+            <div class="container col-lg-6 mx-auto">
+                <div class="text-center mb-5">
+                    <h2 class="fs-1 fw-bold section-heading-futuristic">GET IN TOUCH</h2>
+                </div>
+                <div class="p-4 rounded-3 futuristic-card">
+                    <form id="contact-form-btech" class="row g-3">
+                        <div class="col-12">
+                            <label class="form-label text-white">Name</label>
+                            <input type="text" id="name-btech" required class="form-control bg-dark border-secondary text-white">
+                        </div>
+                        <div class="col-12">
+                            <label class="form-label text-white">Email</label>
+                            <input type="email" id="email-btech" required class="form-control bg-dark border-secondary text-white">
+                        </div>
+                        <div class="col-12">
+                            <label class="form-label text-white">Message</label>
+                            <textarea id="message-btech" rows="4" required class="form-control bg-dark border-secondary text-white" placeholder="Write your message..."></textarea>
+                        </div>
+                        <div class="col-12 d-flex justify-content-between align-items-center">
+                            <button type="button" id="polish-button" class="btn btn-sm btn-neon-accent">✨ Polish Message</button>
+                            <span id="polish-status" class="small text-info d-none">Processing...</span>
+                        </div>
+                        <div class="col-12">
+                            <button type="submit" class="btn btn-neon-accent w-100">Send Message</button>
+                        </div>
+                    </form>
+                    <div id="status-message-btech" class="mt-4 p-3 rounded-3 text-center d-none"></div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="bg-dark text-center py-4 border-top border-secondary">
+        <p class="mb-0 small text-secondary">&copy; 2025 Anish Jaiswal | All rights reserved</p>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+        // AI Polisher Script (Keep your existing functionality)
+        const API_URL = 'https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash-preview-05-20:generateContent?key=';
+        const apiKey = "AIzaSyCQBJRxV3B9NKPv_ZokhCyNtK3ZFtdEgh4"; 
+
+        async function polishMessageDraft() {
+            const messageTextarea = document.getElementById('message-btech');
+            const polishButton = document.getElementById('polish-button');
+            const statusMsg = document.getElementById('status-message-btech');
+            const originalText = messageTextarea.value.trim();
+
+            if (originalText.length < 10) return;
+
+            polishButton.disabled = true;
+            document.getElementById('polish-status').classList.remove('d-none');
+
+            const payload = {
+                contents: [{ parts: [{ text: `Reword this professionally for a portfolio contact form: "${originalText}"` }] }]
+            };
+
+            try {
+                const response = await fetch(API_URL + apiKey, {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify(payload)
+                });
+                const data = await response.json();
+                const refinedText = data.candidates[0].content.parts[0].text;
+                messageTextarea.value = refinedText.trim();
+                statusMsg.textContent = "Message polished!";
+                statusMsg.className = 'mt-4 p-2 alert alert-info';
+                statusMsg.classList.remove('d-none');
+            } catch (error) {
+                console.error(error);
+            } finally {
+                polishButton.disabled = false;
+                document.getElementById('polish-status').classList.add('d-none');
+            }
+        }
+
+        document.getElementById('polish-button').addEventListener('click', polishMessageDraft);
+    </script>
+</body>
+</html>
